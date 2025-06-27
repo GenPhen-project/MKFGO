@@ -31,3 +31,5 @@ process TRAIN_PLMGO {
     """
     mkdir -p plmgo_model
     python ${baseDir}/../training/PLMGO_train.py
+    """
+}

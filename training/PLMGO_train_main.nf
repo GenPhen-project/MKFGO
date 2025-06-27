@@ -21,5 +21,3 @@ workflow plmgo_training {
     emit:
         model = model_ch
 }
-
-workflow
