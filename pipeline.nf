@@ -2,12 +2,10 @@
 
 nextflow.enable.dsl = 2
 
-params {
-    use_dlmgo = true
-    input_fasta = 'test_seq.fasta'
-    go_types = ['MF', 'BP', 'CC']
-    outdir = 'results'  // Add output directory parameter
-}
+params.use_dlmgo = true
+params.input_fasta = 'test_seq.fasta'
+params.go_types = ['MF', 'BP', 'CC']
+params.outdir = 'results'
 
 // Import modules
 include { EXTRACT_FEATURES; HAND_CRAFT; PLM; PPI; GLM; ENSEMBLE } from './modules/prediction'
