@@ -38,6 +38,32 @@ MKFGO is a composite protein function prediction model in the context of Gene On
 <li> <a href="http://www.jcu-qiulab.com/static/servers/GOA/benchmark_dataset.zip">Benchmark datasets</a>  </li>
   
 
+## Prediction with Nextflow
+1. Rename your protein sequence file as "test_seq.fasta" with fasta format.
+2. Create a new directory (e.g. test_example), which contains the "test_seq.fasta"  
+3. Modify the parameters in the `nextflow.config` file as needed:
+   - `workdir`: The working directory
+   - `use_dlmgo`: Set to true/false to include/exclude DLMGO predictions
+   - `input_fasta`: Path to your input FASTA file
+
+4. Running prediction
+   
+   ```bash
+   cd test_example
+   nextflow run ../main.nf
+   ```
+   
+   You can also customize parameters directly from the command line:
+   ```bash
+   nextflow run ../main.nf --use_dlmgo false --input_fasta my_sequences.fasta
+   ```
+   
+   The pipeline will automatically:
+   - Extract features (PSSM, SSCM, FDBV)
+   - Run all prediction pipelines in parallel
+   - Combine results using the ensemble method
+   - Generate final predictions for each GO type (MF, BP, CC)
+
 ## Prediction
 1. Rename your protein sequence file as "test.fasta" with fasta format.
 2. Create a new directory (e.g. test_example), which contains the "test.fasta"  
