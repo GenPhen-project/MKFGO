@@ -175,7 +175,7 @@ def wget(url='',outfile='',no_err=False,show_url=False):
             sys.stderr.write("fetching %s\n"%url)
         try:
             urllib.urlretrieve(url, outfile)
-        except Exception,err:
+        except Exception.err:
             if not err:
                 sys.stderr.write(str(err)+'\n')
             return ''
